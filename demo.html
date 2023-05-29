@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lottery Game</title>
+        <meta charset="UTF-8">
+        <meta name = "author" content="liangying">
+        <meta name="schoolnumber" content="110403029">
+        <link rel="stylesheet" href="demo.css">
+        
+    </head>
+    <body>
+        <div>
+            <h2>This is a loterry game</h2>
+            <p>遊戲說明：玩家可在網頁上自行輸入 3 個號碼 (範圍是數字 1~10)，
+                開始遊戲時機器會亂數產生 3 個號碼 (範圍也是數字1~10且不重複)，
+                若玩家所輸入的三個數字剛好全部對中機器的數字則得頭獎、對中兩個數字則得貳獎、對中一個數字則得參獎，
+                未對中任何數字者別氣餒，可點選reset按鈕，再次開始遊戲！祝您中獎！
+            </p>
+            <p>玩家的第一個數字<input id="guess_num1" type="number" onkeyup="myFunction(this.value)"></p>
+            <p>玩家的第二個數字<input id="guess_num2" type="number" onkeyup="myFunction(this.value)"></p>
+            <p>玩家的第三個數字<input id="guess_num3" type="number" onkeyup="myFunction(this.value)"></p>
+            <button type="button" onclick="luckNum()">就是這三個幸運數字了！</button>
+            <button type="button" onclick="myFunction()">開始對獎！</button>
+            <br>
+            <p id="luckynumber">機器產生的三個數字：</p>
+            <p id="demo">loading...</p>
+            <button type = "button" onclick ="reset()">Reset</button>
+        </div>
+        <script>
+            var arr=[];
+            let count =0;
+            let i=0
+
+            function luckNum(){
+                for (i = 0; i < 3; i++) {
+                    arr.push(Math.floor(Math.random()*10)+1);
+                }
+                document.getElementById("luckynumber").innerHTML = arr;
+            }
+            
+            function myFunction(){
+                let input1 = document.getElementById("guess_num1").value;
+                let input2 = document.getElementById("guess_num2").value;
+                let input3 = document.getElementById("guess_num3").value;
+                if (arr.includes(input1)){
+                    count+=1;
+                }
+                if (arr.includes(input2)){
+                    count+=1;
+                }
+                if (arr.includes(input3)){
+                    count+=1;
+                }
+
+                
+                if(count==3)
+                    text = '中頭獎 獎金1000元';
+                else if(count==2)
+                    text = '中貳獎 獎金500元';
+                else if(count==1)
+                    text = '中參獎 獎金200元';
+                else
+                    text = '沒中獎 別氣餒';
+                document.getElementById("demo").innerHTML = text;
+
+            }
+            function reset(){
+                document.getElementById("guess_num1").value = ""; 
+                document.getElementById("guess_num2").value = ""; 
+                document.getElementById("guess_num3").value = ""; 
+                document.getElementById("luckynumber").innerHTML = "";
+                document.getElementById("demo").innerHTML = ""; 
+            }   
+	
+        </script>
+
+
+    </body>

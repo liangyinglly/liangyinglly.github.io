@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-sizing: border-box;
+}
+body{
+	background-image: url(image/international-cat-day1-scaled.jpg);
+	background-repeat: no-repeat;
+	background-position: top;
+	background-attachment: scroll;
+    background-size: cover;
+}
+input{
+    border:0;
+    background-color:rgb(159, 174, 191);
+    border-radius:10px;
+    size: 100px;
+}
+button {
+    border:0;
+    background-color:rgb(159, 174, 191);
+    color:#fff;
+    border-radius:10px;
+    cursor:pointer;
+    size: 50px;
+}
+button:hover{
+    color:#dab6d8;
+    background-color:#fff;
+    border:2px #889bb9 solid;
+}
